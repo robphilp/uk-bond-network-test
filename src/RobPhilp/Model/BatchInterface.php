@@ -24,7 +24,14 @@ interface BatchInterface
     /**
      * @param string $number
      *
-     * @return mixed
+     * @return PackageInterface
+     */
+    public function getPackageByConsignmentNumber(string $number);
+
+    /**
+     * @param string $number
+     *
+     * @return void
      */
     public function removePackageByConsignmentNumber(string $number);
 

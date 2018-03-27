@@ -2,6 +2,13 @@
 
 namespace RobPhilp\ValueObject;
 
+/**
+ * Class Weight
+ *
+ * VO to represent weight with value and unit of weight
+ *
+ * @package RobPhilp\ValueObject
+ */
 class Weight {
 
     /**

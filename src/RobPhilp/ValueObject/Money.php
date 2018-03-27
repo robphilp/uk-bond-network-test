@@ -2,6 +2,13 @@
 
 namespace RobPhilp\ValueObject;
 
+/**
+ * Class Money
+ *
+ * VO to represent Money as a currency and a value
+ *
+ * @package RobPhilp\ValueObject
+ */
 class Money
 {
     /**

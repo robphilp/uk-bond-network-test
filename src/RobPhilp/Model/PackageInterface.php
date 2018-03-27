@@ -18,6 +18,18 @@ interface PackageInterface
     public function getValue() : Money;
 
     /**
+     * @param CourierInterface $courier
+     *
+     * @return void
+     */
+    public function setCourier(CourierInterface $courier);
+
+    /**
+     * @return string
+     */
+    public function getCourier(): string;
+
+    /**
      * @return string
      */
     public function getConsignmentNumber(): string;

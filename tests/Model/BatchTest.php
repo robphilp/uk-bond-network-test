@@ -13,7 +13,8 @@ class BatchTest extends TestCase
 {
     public function testCanInstantiateBatch()
     {
-        $this->assertInstanceOf(Batch::class, new Batch());
+        $batch = new Batch();
+        $this->assertInstanceOf(Batch::class, $batch);
     }
 
     public function testCanAddPackagesCorrectly()
@@ -37,6 +38,24 @@ class BatchTest extends TestCase
         $batch->addPackage($package2);
 
         $this->assertCount(2, $batch->getPackages());
+    }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot add packages to a closed batch
+     */
+    public function testCannotAddPackageToClosedBatch()
+    {
+        $package1 = new Package(
+            new Weight('20', 'KG'),
+            new Money('25', '£'),
+            new DPDCourier()
+        );
+
+        $batch = new Batch();
+        $batch->close();
+
+        $batch->addPackage($package1);
     }
 
     public function testCanGetPackageByConsignmentNumber()
@@ -85,5 +104,7 @@ class BatchTest extends TestCase
 
         $this->assertNull($batch->getPackageByConsignmentNumber($number));
     }
+
+
 
 }

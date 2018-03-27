@@ -41,6 +41,14 @@ class Batch implements BatchInterface
     /**
      * @return void
      */
+    public function open()
+    {
+        $this->state = self::STATE_OPEN;
+    }
+
+    /**
+     * @return void
+     */
     public function close()
     {
         $this->state = self::STATE_CLOSED;
